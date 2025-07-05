@@ -1,0 +1,238 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+#root {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.product-page-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-product-area {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.image-gallery-section {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.main-image-display img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+.thumbnail-gallery img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.thumbnail-gallery img.selected {
+    border-color: #007bff;
+}
+
+.product-info-section h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.product-price-block .original-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 1.1rem;
+    margin-right: 10px;
+}
+
+.product-price-block .current-price {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #e44d26;
+    margin-right: 10px;
+}
+
+.product-price-block .discount-tag {
+    background-color: #00a650;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.product-description-short {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+.key-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.key-features li {
+    margin-bottom: 5px;
+}
+
+.key-features li::before {
+    content: '•';
+    margin-right: 8px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.color-options span {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.color-swatch {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.color-swatch.selected {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+
+.action-seller-sidebar {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.seller-info-block {
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.seller-info-block img.seller-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.seller-info-block .seller-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #007bff;
+}
+
+.seller-info-block .seller-reputation {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.product-actions-block .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.product-section {
+    margin-top: 20px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.product-section-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 o 3 columnas */
+    gap: 15px 30px;
+}
+
+.characteristic-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.characteristic-icon {
+    font-size: 1.4rem;
+    color: #007bff;
+}
+
+.characteristic-text strong {
+    display: block;
+    font-size: 1rem;
+    color: #333;
+}
+
+.description-content p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #444;
+}
+
+@media (max-width: 991.98px) {
+    .main-product-area {
+        flex-direction: column;
+    }
+    .image-gallery-section,
+    .product-info-section,
+    .action-seller-sidebar {
+        width: 100%;
+        max-width: unset;
+    }
+    .action-seller-sidebar {
+        margin-top: 20px;
+    }
+}
