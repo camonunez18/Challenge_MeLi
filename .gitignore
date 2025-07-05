@@ -1,0 +1,21 @@
+# Configuraciones de IDEs (si se generan en la raíz)
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs generales o archivos temporales
+*.log
+temp/
+tmp/
+
+# Archivos de entorno globales
+.env
+
+# Archivos de Docker Compose que pueden ser generados o no necesarios
+.env # Si usas un .env para docker-compose
