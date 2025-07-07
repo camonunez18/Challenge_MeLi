@@ -12,19 +12,18 @@ function App() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const API_URL = process.env.NODE_ENV === 'production'
-        ? 'http://backend:8080/api/products/1'
-        : 'http://localhost:8088/api/products/1';
+    const API_BASE_URL = 'http://localhost:8080/api';
 
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(API_URL);
+                const response = await fetch(`${API_BASE_URL}/products/1`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
                 setProductData(data);
+                setLoading(false);
             } catch (e) {
                 console.error("Error fetching product data:", e);
                 setError("Failed to load product data. Please ensure the backend is running. Error: " + e.message);
@@ -34,7 +33,7 @@ function App() {
         };
 
         fetchProduct();
-    }, [API_URL]);
+    }, []);
 
     if (loading) {
         return (
