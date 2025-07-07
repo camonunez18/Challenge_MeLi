@@ -6,7 +6,7 @@ COPY package.json ./
 COPY yarn.lock ./
 RUN npm install # Or yarn install if you prefer yarn
 
-COPY . ./
+COPY frontend ./
 RUN npm run build
 
 FROM nginx:alpine
