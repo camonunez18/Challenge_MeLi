@@ -14,7 +14,7 @@ function App() {
 
     const API_URL = process.env.NODE_ENV === 'production'
         ? 'http://backend:8080/api/products/1'
-        : 'http://localhost:8080/api/products/1';
+        : 'http://localhost:8088/api/products/1';
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -27,7 +27,7 @@ function App() {
                 setProductData(data);
             } catch (e) {
                 console.error("Error fetching product data:", e);
-                setError("Falló la carga de datos del producto. Por favor, asegúrate de que el backend esté funcionando. Error: " + e.message);
+                setError("Failed to load product data. Please ensure the backend is running. Error: " + e.message);
             } finally {
                 setLoading(false);
             }
@@ -37,15 +37,37 @@ function App() {
     }, [API_URL]);
 
     if (loading) {
-        return <div className="product-page-container">Cargando producto...</div>;
+        return (
+            <div className="App d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+                <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+                <p className="ms-3">Loading product...</p>
+            </div>
+        );
     }
 
     if (error) {
-        return <div className="product-page-container alert alert-danger">Error: {error}</div>;
+        return (
+            <div className="App container py-5">
+                <div className="alert alert-danger text-center" role="alert">
+                    <h4 className="alert-heading">Error loading product!</h4>
+                    <p>{error}</p>
+                    <hr />
+                    <p className="mb-0">Please check the backend connection.</p>
+                </div>
+            </div>
+        );
     }
 
     if (!productData) {
-        return <div className="product-page-container alert alert-info">No se encontraron datos del producto.</div>;
+        return (
+            <div className="App container py-5">
+                <div className="alert alert-info text-center" role="alert">
+                    No product data found.
+                </div>
+            </div>
+        );
     }
 
     const {
@@ -64,8 +86,8 @@ function App() {
 
     return (
         <div className="App">
-            <div className="container product-page-container">
-                <div className="row main-product-area">
+            <div className="container product-page-container py-4"> {/* Added vertical padding */}
+                <div className="row main-product-area mb-4"> {/* Bottom margin to separate sections */}
                     <div className="col-lg-6 col-md-12 image-gallery-section">
                         <MainProductDisplay
                             name={name}
@@ -74,13 +96,13 @@ function App() {
                             discountPercentage={discountPercentage}
                             descriptionShort={description.short}
                             images={images}
-                            colors={colors}
+                            colors={colors} // Ensure MainProductDisplay uses colors for image selection if applicable
                             comments={comments}
                             totalReviews={totalReviews}
                         />
                     </div>
 
-                    <div className="col-lg-6 col-md-12 product-info-section">
+                    <div className="col-lg-6 col-md-12 product-info-sidebar">
                         <ProductDetailsHeader
                             name={name}
                             price={price}
@@ -91,21 +113,25 @@ function App() {
                             comments={comments}
                             totalReviews={totalReviews}
                         />
+
+                        <SellerBlock sellerInfo={sellerInfo} />
+
+                        <ProductActions price={price} />
                     </div>
                 </div>
 
-                <div className="col-lg-4 col-md-12 offset-lg-8 action-seller-sidebar mt-4">
-                    <SellerBlock sellerInfo={sellerInfo} />
-                    <ProductActions price={price} />
+                <div className="row characteristics-section mb-4">
+                    <div className="col-12">
+                        <CharacteristicsSection characteristics={characteristics} />
+                    </div>
                 </div>
 
-                <div className="col-12">
-                    <CharacteristicsSection characteristics={characteristics} />
+                <div className="row description-section mb-4">
+                    <div className="col-12">
+                        <DescriptionSection fullDescription={description.full} />
+                    </div>
                 </div>
 
-                <div className="col-12">
-                    <DescriptionSection fullDescription={description.full} />
-                </div>
 
             </div>
         </div>

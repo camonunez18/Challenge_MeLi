@@ -1,3 +1,5 @@
+/* src/styles/index.css */
+
 body {
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
@@ -30,31 +32,45 @@ body {
     border-radius: 5px;
 }
 
-.main-image-display img {
-    width: 100%;
+.main-image-display {
+    max-height: 500px;
+    min-height: 300px;
     height: auto;
-    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #f8f9fa;
+}
+
+.main-image-display img {
+    object-fit: cover;
 }
 
 .thumbnail-gallery {
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 5px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
-.thumbnail-gallery img {
-    width: 50px;
-    height: 50px;
+.thumbnail-gallery .img-thumbnail {
+    width: 80px;
+    height: 80px;
     object-fit: contain;
-    border: 1px solid #ddd;
-    border-radius: 3px;
     cursor: pointer;
-    transition: border-color 0.2s;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease-in-out;
+    border-radius: 0.3rem;
 }
 
-.thumbnail-gallery img.selected {
-    border-color: #007bff;
+.thumbnail-gallery .img-thumbnail.selected {
+    border-color: var(--bs-primary, #0d6efd);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
 .product-info-section h1 {
@@ -147,14 +163,18 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-.seller-info-block img.seller-logo {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
+/* Consolidamos los estilos del logo aquí, eliminando la duplicación */
+.seller-info-block img.seller-logo, /* Apunta directamente a la imagen dentro del bloque */
+.seller-logo { /* Mantiene la clase general por si se usa en otro lugar */
+    width: 70px; /* Tamaño que se ve bien en la imagen de referencia */
+    height: 70px; /* Tamaño que se ve bien en la imagen de referencia */
+    border-radius: 50%; /* Para que sea circular */
+    object-fit: contain; /* Asegura que el logo se ajuste sin recortar ni estirar */
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* Borde sutil */
+    padding: 5px; /* Pequeño padding dentro del borde */
 }
+
 
 .seller-info-block .seller-name {
     font-weight: bold;
