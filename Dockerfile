@@ -3,10 +3,10 @@ FROM node:18-alpine AS build
 WORKDIR /app
 
 COPY package.json ./
-COPY yarn.lock ./
-RUN npm install # Or yarn install if you prefer yarn
+COPY package-lock.json ./
+RUN npm install --silent
 
-COPY frontend ./
+COPY . .
 RUN npm run build
 
 FROM nginx:alpine
