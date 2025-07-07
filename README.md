@@ -6,17 +6,14 @@ Este repositorio contiene el código fuente del frontend desarrollado para el Ch
 
 El principal desafío personal durante la realización de este reto fue la creación de la interfaz de usuario y la lógica del frontend. Si bien mi fuerte y mayor experiencia se encuentran en el desarrollo backend, y mis conocimientos en tecnologías frontend eran reducidos, este challenge me brindó una valiosa oportunidad para expandirlos.
 
-Para superar esta brecha, me apoyé significativamente en la inteligencia artificial, particularmente en Gemini, para guiarme en la estructuración de la aplicación, la creación de componentes y la interconexión con el backend. Esta colaboración fue fundamental para poder concretar la parte visual del proyecto.
+Para superar esta brecha, me apoyé significativamente en la inteligencia artificial, particularmente en Gemini, para guiarme en la estructuración de la aplicación, la creación de componentes y la interconexión con el backend.
 
-A lo largo de este proceso, pude adquirir una comprensión básica pero sólida sobre:
+A lo largo de este proceso, pude adquirir una comprensión sobre:
 
 * **Componentes en React:** Cómo se estructuran, su propósito y cómo construir interfaces modulares.
 * **Interacción entre Componentes:** La comunicación y el flujo de datos entre los distintos elementos de la UI.
 * **Renderización Dinámica:** Cómo React gestiona la actualización y visualización de la información en la página.
-* **Peticiones al Backend (Fetch API):** La forma de realizar llamadas HTTP para obtener y enviar datos desde y hacia la API REST del backend, incluyendo la gestión de diferentes entornos (desarrollo vs. producción en Docker).
-* **Configuración de Entornos Docker:** Entender cómo las aplicaciones frontend y backend se comunican dentro de una red de contenedores, y cómo exponerlas correctamente al exterior.
-
-Este proyecto ha sido una excelente curva de aprendizaje y me ha permitido familiarizarme con las bases del desarrollo frontend moderno, complementando mis habilidades de backend.
+* **Peticiones al Backend (Fetch API):** La forma de realizar llamadas HTTP para obtener y enviar datos desde y hacia la API REST del backend, incluyendo la gestión de diferentes entornos.
 
 ## 🛠️ Tecnologías Utilizadas
 
